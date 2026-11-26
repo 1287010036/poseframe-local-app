@@ -1,0 +1,50 @@
+{
+  "clip": {
+    "name": "通用感觉识别 CLIP (INT8)",
+    "version": "clip-q8-6b7c523",
+    "repo": "https://huggingface.co/Xenova/clip-vit-base-patch32/resolve/6b7c523703ae26e39be4b03774966f8571c7f523/",
+    "files": [
+      "config.json",
+      "preprocessor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "special_tokens_map.json",
+      "merges.txt",
+      "vocab.json",
+      "onnx/vision_model_quantized.onnx",
+      "onnx/text_model_quantized.onnx"
+    ],
+    "description": "真人和插画共用；姿势、感觉、构图、道具与相似图片。约 160 MB。",
+    "mirrors": [
+      "https://hf-mirror.com/Xenova/clip-vit-base-patch32/resolve/6b7c523703ae26e39be4b03774966f8571c7f523/"
+    ]
+  },
+  "pose": {
+    "name": "人体骨骼 MediaPipe Lite",
+    "version": "pose-lite-1",
+    "repo": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/",
+    "files": [
+      "pose_landmarker_lite.task"
+    ],
+    "description": "姿势、景别和人数候选；插画可能无法检测。约 6 MB。",
+    "mirrors": [
+      "https://hf-mirror.com/litert-community/MediaPipe-PoseLandmarker-Lite/resolve/main/"
+    ]
+  },
+  "anime": {
+    "name": "插画辅助 WD ConvNext V3",
+    "version": "wd-v3-b498930",
+    "repo": "https://huggingface.co/SmilingWolf/wd-convnext-tagger-v3/resolve/b49893074ca64d952306c9a181a4bfc5f13563ad/",
+    "files": [
+      "model.onnx",
+      "selected_tags.csv"
+    ],
+    "description": "可选，动漫动作、道具、景别；较大约 395 MB，建议先试基础模型。",
+    "mirrors": [
+      "https://hf-mirror.com/SmilingWolf/wd-convnext-tagger-v3/resolve/b49893074ca64d952306c9a181a4bfc5f13563ad/"
+    ],
+    "sha256": {
+      "model.onnx": "02f30d4de9bada756981a11464d13aa206f5e2d4ff6da384511beb812d58b2ca"
+    }
+  }
+}
