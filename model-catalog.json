@@ -46,5 +46,106 @@
     "sha256": {
       "model.onnx": "02f30d4de9bada756981a11464d13aa206f5e2d4ff6da384511beb812d58b2ca"
     }
+  },
+  "siglip": {
+    "name": "SigLIP 2 Base/16 384 INT8（高精度候选）",
+    "version": "siglip2-384-q8-99f5d40",
+    "repo": "https://huggingface.co/onnx-community/siglip2-base-patch16-384-ONNX/resolve/99f5d40afb5331b81eecee4bb02c360fbb9cdf8a/",
+    "files": [
+      "config.json",
+      "preprocessor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "special_tokens_map.json",
+      "onnx/vision_model_quantized.onnx",
+      "onnx/text_model_quantized.onnx"
+    ],
+    "description": "新语义模型；真机自检后手动选择。旧 CLIP 保留。",
+    "mirrors": [
+      "https://hf-mirror.com/onnx-community/siglip2-base-patch16-384-ONNX/resolve/99f5d40afb5331b81eecee4bb02c360fbb9cdf8a/"
+    ],
+    "sha256": {
+      "onnx/vision_model_quantized.onnx": "9f354d80bbb46b319f46f9e9d0e24ae523e3eb5921aac3d34979d74dbd0db6cd",
+      "onnx/text_model_quantized.onnx": "30a94b43b9ddc39c04ab67f80cba4b808262682b2fa1a2a8b924bf1e7bd84c61"
+    }
+  },
+  "poseheavy": {
+    "name": "MediaPipe 骨骼 Heavy",
+    "version": "poseheavy-float16-1",
+    "repo": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/1/",
+    "files": [
+      "pose_landmarker_heavy.task"
+    ],
+    "description": "独立可选模型，必须先通过自检。",
+    "mirrors": [
+      "https://hf-mirror.com/litert-community/MediaPipe-PoseLandmarker-Heavy/resolve/main/"
+    ]
+  },
+  "posefull": {
+    "name": "MediaPipe 骨骼 Full",
+    "version": "posefull-float16-1",
+    "repo": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/",
+    "files": [
+      "pose_landmarker_full.task"
+    ],
+    "description": "独立可选模型，必须先通过自检。",
+    "mirrors": [
+      "https://hf-mirror.com/litert-community/MediaPipe-PoseLandmarker-Full/resolve/main/"
+    ]
+  },
+  "face": {
+    "name": "MediaPipe 面部表情",
+    "version": "face-float16-1",
+    "repo": "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/",
+    "files": [
+      "face_landmarker.task"
+    ],
+    "description": "独立可选模型，必须先通过自检。",
+    "mirrors": [
+      "https://hf-mirror.com/litert-community/MediaPipe-FaceLandmarker/resolve/main/"
+    ]
+  },
+  "hand": {
+    "name": "MediaPipe 手势关键点",
+    "version": "hand-float16-1",
+    "repo": "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/",
+    "files": [
+      "hand_landmarker.task"
+    ],
+    "description": "独立可选模型，必须先通过自检。",
+    "mirrors": [
+      "https://hf-mirror.com/litert-community/MediaPipe-HandLandmarker-Full/resolve/main/"
+    ]
+  },
+  "detector": {
+    "name": "EfficientDet Lite2 主体检测",
+    "version": "efficientdet-lite2-int8-1",
+    "repo": "https://huggingface.co/litert-community/MediaPipe-ObjectDetector-EfficientDet-Lite2/resolve/main/",
+    "files": [
+      "efficientdet_lite2_int8.tflite"
+    ],
+    "description": "主体检测候选；真机自检后启用。",
+    "mirrors": [
+      "https://hf-mirror.com/litert-community/MediaPipe-ObjectDetector-EfficientDet-Lite2/resolve/main/"
+    ],
+    "sha256": {
+      "efficientdet_lite2_int8.tflite": "b3f50554cb0ea559e90328845f7d9ba4d13c8bff372914d24e06bc8bb72fa896"
+    }
+  },
+  "swin": {
+    "name": "WD SwinV2 V3（高精度候选）",
+    "version": "wd-swin-v3-af7f33f",
+    "repo": "https://huggingface.co/SmilingWolf/wd-swinv2-tagger-v3/resolve/af7f33f4f41df3cd16764ef38638e3f092c7543e/",
+    "files": [
+      "model.onnx",
+      "selected_tags.csv"
+    ],
+    "description": "大型插画模型，原始权重未量化；按需安装。",
+    "mirrors": [
+      "https://hf-mirror.com/SmilingWolf/wd-swinv2-tagger-v3/resolve/af7f33f4f41df3cd16764ef38638e3f092c7543e/"
+    ],
+    "sha256": {
+      "model.onnx": "622d33fc180ed3ecbd886a5318059ea03b5a6df93c170662725104c339cb8b9c"
+    }
   }
 }
