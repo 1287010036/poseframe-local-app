@@ -1,6 +1,6 @@
 // Keep one coherent release active; never activate a partial offline cache.
 importScripts('./runtime-assets.js');
-const CACHE='poseframe-'+self.PF_VERSION, REV='?v=1011', ASSET_URLS=new Set(self.PF_ASSETS.map(f=>new URL(f,self.location.href).href));
+const CACHE='poseframe-'+self.PF_VERSION, REV='?v=1021', ASSET_URLS=new Set(self.PF_ASSETS.map(f=>new URL(f,self.location.href).href));
 self.addEventListener('install',e=>e.waitUntil((async()=>{
  const c=await caches.open(CACHE);
  try{for(const file of self.PF_ASSETS)await c.add(new Request(file,{cache:'reload'}));}

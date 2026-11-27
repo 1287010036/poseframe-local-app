@@ -26,7 +26,7 @@ async function db(){if(!modelDB)modelDB=await new Promise((ok,no)=>{const r=inde
 async function get(k){const d=await db();return request(d.transaction('files').objectStore('files').get(k))}
 async function put(k,b){const d=await db();return new Promise((ok,no)=>{const t=d.transaction('files','readwrite');t.objectStore('files').put(b,k);t.oncomplete=ok;t.onabort=t.onerror=()=>no(t.error)})}
 async function del(k){const d=await db();return request(d.transaction('files','readwrite').objectStore('files').delete(k))}
-async function list(){if(!catalog){let r=await fetch(base()+'model-catalog.json?v=1011');if(!r.ok)throw Error('模型目录不可用');catalog=await r.json()}return catalog}
+async function list(){if(!catalog){let r=await fetch(base()+'model-catalog.json?v=1021');if(!r.ok)throw Error('模型目录不可用');catalog=await r.json()}return catalog}
 const key=(m,f)=>m.version+'/'+f;
 async function installed(id){let m=(await list())[id];if(!m)return false;const ready=await get(key(m,'READY'));if(!ready){verifiedReady.delete(id);return false}if(typeof ready==='string'&&verifiedReady.get(id)===ready)return true;for(const f of m.files){const b=await get(key(m,f));try{if(!b)throw Error('模型文件缺失：'+f);await validateFile(f,b);await validateModelAsset(id,f,b)}catch(e){verifiedReady.delete(id);await del(key(m,'READY')).catch(()=>{});await release(id).catch(()=>{});/* Preserve files on validation failure: repair is explicit. */return false}}if(typeof ready==='string')verifiedReady.set(id,ready);return true}
 async function readTextAsset(f,b){try{return new TextDecoder('utf-8',{fatal:true}).decode(await b.arrayBuffer()).replace(/^\uFEFF/,'')}catch{throw Error(f+'：不是有效 UTF-8 文本，请重新生成对应模型包')}}
