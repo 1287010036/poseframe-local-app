@@ -1,9 +1,9 @@
-try{importScripts('./runtime-assets.js')}catch(e){self.PF_ASSETS=['./index.html','./style.css','./app.js','./pro-core.js','./pro-ui.js','./pro-worker.js','./ai-core.js','./ai-ui.js','./longterm-core.js','./longterm.js','./model-catalog.json','./manifest.webmanifest','./icon-192.png','./icon-512.png'];self.PF_VERSION='v060-pro-source'}
+try{importScripts('./runtime-assets.js')}catch(e){self.PF_ASSETS=['./index.html','./style.css','./app.js','./pro-core.js','./pro-ui.js','./pro-worker.js','./ai-core.js','./ai-ui.js','./longterm-core.js','./longterm.js','./model-catalog.json','./manifest.webmanifest','./icon-192.png','./icon-512.png'];self.PF_VERSION='v061-dual-fix'}
 const CACHE='poseframe-'+self.PF_VERSION;self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(async c=>{for(const file of self.PF_ASSETS)await c.add(new Request(file,{cache:'reload'}));await self.skipWaiting()})));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('poseframe-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin||e.request.cache==='no-store'||u.pathname.includes('/models/'))return;
 // Online navigation checks the current release; offline navigation keeps the local app shell.
 if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(async()=>{const c=await caches.open(CACHE);return await c.match('./index.html')||Response.error()}));return;}
 // Versioned core script bypasses old workers' cache, but maps to the new offline asset.
-if(u.search==='?v=060'){const clean=new URL(u.href);clean.search='';e.respondWith(caches.open(CACHE).then(async c=>await c.match(clean.href)||fetch(e.request)));return;}
+if(u.search==='?v=061'){const clean=new URL(u.href);clean.search='';e.respondWith(caches.open(CACHE).then(async c=>await c.match(clean.href)||fetch(e.request)));return;}
 if(u.pathname===new URL('./app.js',self.location.href).pathname&&['?webfix=1','?webfix=2'].includes(u.search)){e.respondWith(caches.open(CACHE).then(async c=>await c.match('./app.js')||fetch(e.request)));return;}
 e.respondWith(caches.open(CACHE).then(async c=>await c.match(e.request)||fetch(e.request)));});
 

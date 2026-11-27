@@ -29,7 +29,10 @@
     "description": "姿势、景别和人数候选；插画可能无法检测。约 6 MB。",
     "mirrors": [
       "https://hf-mirror.com/litert-community/MediaPipe-PoseLandmarker-Lite/resolve/main/"
-    ]
+    ],
+    "sha256": {
+      "pose_landmarker_lite.task": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+    }
   },
   "anime": {
     "name": "插画辅助 WD ConvNext V3",
@@ -79,19 +82,25 @@
     "description": "独立可选模型，必须先通过自检。",
     "mirrors": [
       "https://hf-mirror.com/litert-community/MediaPipe-PoseLandmarker-Heavy/resolve/main/"
-    ]
+    ],
+    "sha256": {
+      "pose_landmarker_heavy.task": "64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318aad31fcbc7b"
+    }
   },
   "posefull": {
     "name": "MediaPipe 骨骼 Full",
-    "version": "posefull-float16-1",
-    "repo": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/",
+    "version": "posefull-float16-latest-4eaa5eb7",
+    "repo": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/latest/",
     "files": [
       "pose_landmarker_full.task"
     ],
     "description": "独立可选模型，必须先通过自检。",
     "mirrors": [
       "https://hf-mirror.com/litert-community/MediaPipe-PoseLandmarker-Full/resolve/main/"
-    ]
+    ],
+    "sha256": {
+      "pose_landmarker_full.task": "4eaa5eb7a98365221087693fcc286334cf0858e2eb6e15b506aa4a7ecdcec4ad"
+    }
   },
   "face": {
     "name": "MediaPipe 面部表情",
